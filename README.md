@@ -44,6 +44,10 @@ There are 5 tab on the frontend. Campaign, Adset and Ad tabs for both monitoring
 - **For Developing purposes there is no authentication system. However, it is been already implemented. See: marketing_rest_api/authentication/**
 - Celery has been implemented. Thus, there are periodic tasks that retrieve, try to send again and delete failed items. It is set to 
 every 1 min. So after 1 min you run the docker-compose, you will see the existing campaigns, adsets and ads.
+- If celery doesn't work, check error logs. If you see the error below, then you need to refresh MY_ACCESS_TOKEN in .env.dev
+    
+      Error validating access token: The session has been invalidated because the user changed their password or Facebook has changed the session for security reasons.
+
 - For Developing purposes there is no need to implement logger. print function will cover everything.
 - There is no volume in db server, so if you run following command you will flush database. But don't worry! Celery will 
 retrieve all via facebook_api:
